@@ -3,7 +3,18 @@ cmake_minimum_required(VERSION 3.30)
 project(rplidar_scanner LANGUAGES CXX)
 
 # Options
-set(LIB_NAME "rplidar_scanner")
+set(APP_NAME "rplidar_scanner")
+set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
+set(THIRD_PARTY_DIR ${CMAKE_SOURCE_DIR}/ThirdParty)
+
+set(
+  CMAKE_CXX_FLAGS_DEBUG
+  "${CMAKE_CXX_FLAGS_DEBUG} -fsanitize=address -fno-omit-frame-pointer"
+)
+set(
+  CMAKE_EXE_LINKER_FLAGS_DEBUG
+  "${CMAKE_EXE_LINKER_FLAGS_DEBUG} -fsanitize=address"
+)
 
 # Set C++ standard to C++23
 set(CMAKE_CXX_STANDARD 23)
@@ -38,6 +49,12 @@ ExternalProject_Add(project_rplidar_sdk
         COMMAND ${CMAKE_COMMAND} -E copy_directory
             <SOURCE_DIR>/sdk/include
             ${SDK_INCLUDE_DIR}/
+
+        COMMAND ${CMAKE_COMMAND} -E copy_directory
+            <SOURCE_DIR>/sdk/src/hal
+            ${SDK_INCLUDE_DIR}/hal
+
+    BUILD_BYPRODUCTS ${SDK_LIB_DIR}/libsl_lidar_sdk.a
 )
 
 add_library(rplidar_sdk STATIC IMPORTED GLOBAL)
@@ -51,5 +68,12 @@ add_dependencies(rplidar_sdk project_rplidar_sdk)
 add_subdirectory(src)
 
 # Link libraries
-target_link_libraries(${LIB_NAME} PRIVATE rplidar_sdk)
+target_link_libraries(${APP_NAME} PRIVATE rplidar_sdk)
 
+# Copy compile_commands.json to source directory
+# for better integration with IDEs and tools
+if(EXISTS "${CMAKE_CURRENT_BINARY_DIR}/compile_commands.json")
+  execute_process(COMMAND ${CMAKE_COMMAND} -E copy
+        "${CMAKE_CURRENT_BINARY_DIR}/compile_commands.json"
+        "${CMAKE_CURRENT_SOURCE_DIR}/compile_commands.json")
+endif()

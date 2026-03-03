@@ -1,0 +1,8 @@
+[tools]
+cmake = "latest"
+
+[tasks.build]
+run = "cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Debug && cmake --build build"
+
+[tasks.release-build]
+run = "cmake -S . -B build -G Ninja && cmake --build"

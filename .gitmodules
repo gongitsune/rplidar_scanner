@@ -1,0 +1,3 @@
+[submodule "ThirdParty/tomlplusplus"]
+	path = ThirdParty/tomlplusplus
+	url = https://github.com/marzer/tomlplusplus.git

@@ -1,0 +1,20 @@
+[
+{
+  "directory": "/Users/keigo/develop/rplidar_scanner/build",
+  "command": "/usr/bin/c++ -I/Users/keigo/develop/rplidar_scanner/ThirdParty/tomlplusplus/include -I/Users/keigo/develop/rplidar_scanner/include -isystem /Users/keigo/develop/rplidar_scanner/build/external/rplidar_sdk/include -g -Wall -Wextra -Wpedantic -fsanitize=address -fno-omit-frame-pointer -std=gnu++2b -arch arm64 -o src/CMakeFiles/rplidar_scanner.dir/main.cpp.o -c /Users/keigo/develop/rplidar_scanner/src/main.cpp",
+  "file": "/Users/keigo/develop/rplidar_scanner/src/main.cpp",
+  "output": "/Users/keigo/develop/rplidar_scanner/build/src/CMakeFiles/rplidar_scanner.dir/main.cpp.o"
+},
+{
+  "directory": "/Users/keigo/develop/rplidar_scanner/build",
+  "command": "/usr/bin/c++ -I/Users/keigo/develop/rplidar_scanner/ThirdParty/tomlplusplus/include -I/Users/keigo/develop/rplidar_scanner/include -isystem /Users/keigo/develop/rplidar_scanner/build/external/rplidar_sdk/include -g -Wall -Wextra -Wpedantic -fsanitize=address -fno-omit-frame-pointer -std=gnu++2b -arch arm64 -o src/CMakeFiles/rplidar_scanner.dir/config.cpp.o -c /Users/keigo/develop/rplidar_scanner/src/config.cpp",
+  "file": "/Users/keigo/develop/rplidar_scanner/src/config.cpp",
+  "output": "/Users/keigo/develop/rplidar_scanner/build/src/CMakeFiles/rplidar_scanner.dir/config.cpp.o"
+},
+{
+  "directory": "/Users/keigo/develop/rplidar_scanner/build",
+  "command": "/usr/bin/c++ -I/Users/keigo/develop/rplidar_scanner/ThirdParty/tomlplusplus/include -I/Users/keigo/develop/rplidar_scanner/include -isystem /Users/keigo/develop/rplidar_scanner/build/external/rplidar_sdk/include -g -Wall -Wextra -Wpedantic -fsanitize=address -fno-omit-frame-pointer -std=gnu++2b -arch arm64 -o src/CMakeFiles/rplidar_scanner.dir/lidar.cpp.o -c /Users/keigo/develop/rplidar_scanner/src/lidar.cpp",
+  "file": "/Users/keigo/develop/rplidar_scanner/src/lidar.cpp",
+  "output": "/Users/keigo/develop/rplidar_scanner/build/src/CMakeFiles/rplidar_scanner.dir/lidar.cpp.o"
+}
+]

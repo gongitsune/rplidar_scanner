@@ -1,0 +1,3 @@
+[config]
+serial_port = "/dev/tty.usbserial-0001"
+baudrate = 115200
