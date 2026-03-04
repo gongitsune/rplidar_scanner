@@ -74,4 +74,24 @@ bool Driver::health_check() {
     return false;
   }
 }
+
+void Driver::start_scan() {
+  this->driver->setMotorSpeed();
+  this->driver->startScan(0, 1);
+}
+
+bool Driver::fetch_scan_data(scan_node_t *nodes, size_t &count) {
+  auto op_result = this->driver->grabScanDataHq(nodes, count);
+  if (SL_IS_FAIL(op_result)) {
+    std::cerr << "Failed to grab scan data: " << op_result << std::endl;
+    return false;
+  }
+  op_result = this->driver->ascendScanData(nodes, count);
+  if (SL_IS_FAIL(op_result)) {
+    std::cerr << "Failed to ascend scan data: " << op_result << std::endl;
+    return false;
+  }
+
+  return true;
+}
 } // namespace rplidar_scanner

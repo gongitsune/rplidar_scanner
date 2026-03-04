@@ -1,20 +1,158 @@
 [
 {
   "directory": "/Users/keigo/develop/rplidar_scanner/build",
-  "command": "/usr/bin/c++ -I/Users/keigo/develop/rplidar_scanner/ThirdParty/tomlplusplus/include -I/Users/keigo/develop/rplidar_scanner/include -isystem /Users/keigo/develop/rplidar_scanner/build/external/rplidar_sdk/include -g -Wall -Wextra -Wpedantic -fsanitize=address -fno-omit-frame-pointer -std=gnu++2b -arch arm64 -o src/CMakeFiles/rplidar_scanner.dir/main.cpp.o -c /Users/keigo/develop/rplidar_scanner/src/main.cpp",
+  "command": "/usr/bin/cc -DHAVE_CONFIG_H -Dliblo_EXPORTS -I/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-build -I/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/cmake/.. -g -arch arm64 -fPIC -o _deps/liblo-build/CMakeFiles/liblo.dir/__/src/address.c.o -c /Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/src/address.c",
+  "file": "/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/src/address.c",
+  "output": "/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-build/CMakeFiles/liblo.dir/__/src/address.c.o"
+},
+{
+  "directory": "/Users/keigo/develop/rplidar_scanner/build",
+  "command": "/usr/bin/cc -DHAVE_CONFIG_H -Dliblo_EXPORTS -I/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-build -I/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/cmake/.. -g -arch arm64 -fPIC -o _deps/liblo-build/CMakeFiles/liblo.dir/__/src/blob.c.o -c /Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/src/blob.c",
+  "file": "/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/src/blob.c",
+  "output": "/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-build/CMakeFiles/liblo.dir/__/src/blob.c.o"
+},
+{
+  "directory": "/Users/keigo/develop/rplidar_scanner/build",
+  "command": "/usr/bin/cc -DHAVE_CONFIG_H -Dliblo_EXPORTS -I/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-build -I/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/cmake/.. -g -arch arm64 -fPIC -o _deps/liblo-build/CMakeFiles/liblo.dir/__/src/bundle.c.o -c /Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/src/bundle.c",
+  "file": "/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/src/bundle.c",
+  "output": "/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-build/CMakeFiles/liblo.dir/__/src/bundle.c.o"
+},
+{
+  "directory": "/Users/keigo/develop/rplidar_scanner/build",
+  "command": "/usr/bin/cc -DHAVE_CONFIG_H -Dliblo_EXPORTS -I/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-build -I/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/cmake/.. -g -arch arm64 -fPIC -o _deps/liblo-build/CMakeFiles/liblo.dir/__/src/message.c.o -c /Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/src/message.c",
+  "file": "/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/src/message.c",
+  "output": "/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-build/CMakeFiles/liblo.dir/__/src/message.c.o"
+},
+{
+  "directory": "/Users/keigo/develop/rplidar_scanner/build",
+  "command": "/usr/bin/cc -DHAVE_CONFIG_H -Dliblo_EXPORTS -I/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-build -I/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/cmake/.. -g -arch arm64 -fPIC -o _deps/liblo-build/CMakeFiles/liblo.dir/__/src/method.c.o -c /Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/src/method.c",
+  "file": "/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/src/method.c",
+  "output": "/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-build/CMakeFiles/liblo.dir/__/src/method.c.o"
+},
+{
+  "directory": "/Users/keigo/develop/rplidar_scanner/build",
+  "command": "/usr/bin/cc -DHAVE_CONFIG_H -Dliblo_EXPORTS -I/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-build -I/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/cmake/.. -g -arch arm64 -fPIC -o _deps/liblo-build/CMakeFiles/liblo.dir/__/src/pattern_match.c.o -c /Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/src/pattern_match.c",
+  "file": "/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/src/pattern_match.c",
+  "output": "/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-build/CMakeFiles/liblo.dir/__/src/pattern_match.c.o"
+},
+{
+  "directory": "/Users/keigo/develop/rplidar_scanner/build",
+  "command": "/usr/bin/cc -DHAVE_CONFIG_H -Dliblo_EXPORTS -I/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-build -I/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/cmake/.. -g -arch arm64 -fPIC -o _deps/liblo-build/CMakeFiles/liblo.dir/__/src/send.c.o -c /Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/src/send.c",
+  "file": "/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/src/send.c",
+  "output": "/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-build/CMakeFiles/liblo.dir/__/src/send.c.o"
+},
+{
+  "directory": "/Users/keigo/develop/rplidar_scanner/build",
+  "command": "/usr/bin/cc -DHAVE_CONFIG_H -Dliblo_EXPORTS -I/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-build -I/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/cmake/.. -g -arch arm64 -fPIC -o _deps/liblo-build/CMakeFiles/liblo.dir/__/src/server.c.o -c /Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/src/server.c",
+  "file": "/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/src/server.c",
+  "output": "/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-build/CMakeFiles/liblo.dir/__/src/server.c.o"
+},
+{
+  "directory": "/Users/keigo/develop/rplidar_scanner/build",
+  "command": "/usr/bin/cc -DHAVE_CONFIG_H -Dliblo_EXPORTS -I/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-build -I/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/cmake/.. -g -arch arm64 -fPIC -o _deps/liblo-build/CMakeFiles/liblo.dir/__/src/timetag.c.o -c /Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/src/timetag.c",
+  "file": "/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/src/timetag.c",
+  "output": "/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-build/CMakeFiles/liblo.dir/__/src/timetag.c.o"
+},
+{
+  "directory": "/Users/keigo/develop/rplidar_scanner/build",
+  "command": "/usr/bin/cc -DHAVE_CONFIG_H -Dliblo_EXPORTS -I/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-build -I/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/cmake/.. -g -arch arm64 -fPIC -o _deps/liblo-build/CMakeFiles/liblo.dir/__/src/version.c.o -c /Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/src/version.c",
+  "file": "/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/src/version.c",
+  "output": "/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-build/CMakeFiles/liblo.dir/__/src/version.c.o"
+},
+{
+  "directory": "/Users/keigo/develop/rplidar_scanner/build",
+  "command": "/usr/bin/cc -DHAVE_CONFIG_H -Dliblo_EXPORTS -I/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-build -I/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/cmake/.. -g -arch arm64 -fPIC -o _deps/liblo-build/CMakeFiles/liblo.dir/__/src/server_thread.c.o -c /Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/src/server_thread.c",
+  "file": "/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/src/server_thread.c",
+  "output": "/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-build/CMakeFiles/liblo.dir/__/src/server_thread.c.o"
+},
+{
+  "directory": "/Users/keigo/develop/rplidar_scanner/build",
+  "command": "/usr/bin/cc -DHAVE_CONFIG_H -I/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-build -I/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/cmake/.. -g -arch arm64 -o _deps/liblo-build/CMakeFiles/oscdump.dir/__/src/tools/oscdump.c.o -c /Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/src/tools/oscdump.c",
+  "file": "/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/src/tools/oscdump.c",
+  "output": "/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-build/CMakeFiles/oscdump.dir/__/src/tools/oscdump.c.o"
+},
+{
+  "directory": "/Users/keigo/develop/rplidar_scanner/build",
+  "command": "/usr/bin/cc -DHAVE_CONFIG_H -I/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-build -I/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/cmake/.. -g -arch arm64 -o _deps/liblo-build/CMakeFiles/oscsend.dir/__/src/tools/oscsend.c.o -c /Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/src/tools/oscsend.c",
+  "file": "/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/src/tools/oscsend.c",
+  "output": "/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-build/CMakeFiles/oscsend.dir/__/src/tools/oscsend.c.o"
+},
+{
+  "directory": "/Users/keigo/develop/rplidar_scanner/build",
+  "command": "/usr/bin/cc -DHAVE_CONFIG_H -I/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-build -I/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/cmake/.. -g -arch arm64 -o _deps/liblo-build/CMakeFiles/oscsendfile.dir/__/src/tools/oscsendfile.c.o -c /Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/src/tools/oscsendfile.c",
+  "file": "/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/src/tools/oscsendfile.c",
+  "output": "/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-build/CMakeFiles/oscsendfile.dir/__/src/tools/oscsendfile.c.o"
+},
+{
+  "directory": "/Users/keigo/develop/rplidar_scanner/build",
+  "command": "/usr/bin/cc -DHAVE_CONFIG_H -I/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-build -I/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/cmake/.. -g -arch arm64 -o _deps/liblo-build/CMakeFiles/testlo.dir/__/src/testlo.c.o -c /Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/src/testlo.c",
+  "file": "/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/src/testlo.c",
+  "output": "/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-build/CMakeFiles/testlo.dir/__/src/testlo.c.o"
+},
+{
+  "directory": "/Users/keigo/develop/rplidar_scanner/build",
+  "command": "/usr/bin/cc -DHAVE_CONFIG_H -I/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-build -I/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/cmake/.. -g -arch arm64 -o _deps/liblo-build/CMakeFiles/subtest.dir/__/src/subtest.c.o -c /Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/src/subtest.c",
+  "file": "/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/src/subtest.c",
+  "output": "/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-build/CMakeFiles/subtest.dir/__/src/subtest.c.o"
+},
+{
+  "directory": "/Users/keigo/develop/rplidar_scanner/build",
+  "command": "/usr/bin/cc -DHAVE_CONFIG_H -I/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-build -I/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/cmake/.. -g -arch arm64 -o _deps/liblo-build/CMakeFiles/test_bidirectional_tcp.dir/__/src/test_bidirectional_tcp.c.o -c /Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/src/test_bidirectional_tcp.c",
+  "file": "/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/src/test_bidirectional_tcp.c",
+  "output": "/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-build/CMakeFiles/test_bidirectional_tcp.dir/__/src/test_bidirectional_tcp.c.o"
+},
+{
+  "directory": "/Users/keigo/develop/rplidar_scanner/build",
+  "command": "/usr/bin/c++ -DHAVE_CONFIG_H -I/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-build -I/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/cmake/.. -g -fsanitize=address -fno-omit-frame-pointer -std=gnu++11 -arch arm64 -o _deps/liblo-build/CMakeFiles/cpp_test.dir/__/src/cpp_test.cpp.o -c /Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/src/cpp_test.cpp",
+  "file": "/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/src/cpp_test.cpp",
+  "output": "/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-build/CMakeFiles/cpp_test.dir/__/src/cpp_test.cpp.o"
+},
+{
+  "directory": "/Users/keigo/develop/rplidar_scanner/build",
+  "command": "/usr/bin/cc -DHAVE_CONFIG_H -I/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-build -I/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/cmake/.. -g -arch arm64 -o _deps/liblo-build/CMakeFiles/example_client.dir/__/examples/example_client.c.o -c /Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/examples/example_client.c",
+  "file": "/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/examples/example_client.c",
+  "output": "/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-build/CMakeFiles/example_client.dir/__/examples/example_client.c.o"
+},
+{
+  "directory": "/Users/keigo/develop/rplidar_scanner/build",
+  "command": "/usr/bin/cc -DHAVE_CONFIG_H -I/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-build -I/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/cmake/.. -g -arch arm64 -o _deps/liblo-build/CMakeFiles/example_server.dir/__/examples/example_server.c.o -c /Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/examples/example_server.c",
+  "file": "/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/examples/example_server.c",
+  "output": "/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-build/CMakeFiles/example_server.dir/__/examples/example_server.c.o"
+},
+{
+  "directory": "/Users/keigo/develop/rplidar_scanner/build",
+  "command": "/usr/bin/cc -DHAVE_CONFIG_H -I/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-build -I/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/cmake/.. -g -arch arm64 -o _deps/liblo-build/CMakeFiles/example_tcp_echo_server.dir/__/examples/example_tcp_echo_server.c.o -c /Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/examples/example_tcp_echo_server.c",
+  "file": "/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/examples/example_tcp_echo_server.c",
+  "output": "/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-build/CMakeFiles/example_tcp_echo_server.dir/__/examples/example_tcp_echo_server.c.o"
+},
+{
+  "directory": "/Users/keigo/develop/rplidar_scanner/build",
+  "command": "/usr/bin/cc -DHAVE_CONFIG_H -I/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-build -I/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/cmake/.. -g -arch arm64 -o _deps/liblo-build/CMakeFiles/nonblocking_server_example.dir/__/examples/nonblocking_server_example.c.o -c /Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/examples/nonblocking_server_example.c",
+  "file": "/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/examples/nonblocking_server_example.c",
+  "output": "/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-build/CMakeFiles/nonblocking_server_example.dir/__/examples/nonblocking_server_example.c.o"
+},
+{
+  "directory": "/Users/keigo/develop/rplidar_scanner/build",
+  "command": "/usr/bin/c++ -I/Users/keigo/develop/rplidar_scanner/ThirdParty/tomlplusplus/include -I/Users/keigo/develop/rplidar_scanner/include -I/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-build -I/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/cmake/.. -isystem /Users/keigo/develop/rplidar_scanner/build/external/rplidar_sdk/include -g -fsanitize=address -fno-omit-frame-pointer -std=gnu++2b -arch arm64 -o src/CMakeFiles/rplidar_scanner.dir/main.cpp.o -c /Users/keigo/develop/rplidar_scanner/src/main.cpp",
   "file": "/Users/keigo/develop/rplidar_scanner/src/main.cpp",
   "output": "/Users/keigo/develop/rplidar_scanner/build/src/CMakeFiles/rplidar_scanner.dir/main.cpp.o"
 },
 {
   "directory": "/Users/keigo/develop/rplidar_scanner/build",
-  "command": "/usr/bin/c++ -I/Users/keigo/develop/rplidar_scanner/ThirdParty/tomlplusplus/include -I/Users/keigo/develop/rplidar_scanner/include -isystem /Users/keigo/develop/rplidar_scanner/build/external/rplidar_sdk/include -g -Wall -Wextra -Wpedantic -fsanitize=address -fno-omit-frame-pointer -std=gnu++2b -arch arm64 -o src/CMakeFiles/rplidar_scanner.dir/config.cpp.o -c /Users/keigo/develop/rplidar_scanner/src/config.cpp",
+  "command": "/usr/bin/c++ -I/Users/keigo/develop/rplidar_scanner/ThirdParty/tomlplusplus/include -I/Users/keigo/develop/rplidar_scanner/include -I/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-build -I/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/cmake/.. -isystem /Users/keigo/develop/rplidar_scanner/build/external/rplidar_sdk/include -g -fsanitize=address -fno-omit-frame-pointer -std=gnu++2b -arch arm64 -o src/CMakeFiles/rplidar_scanner.dir/config.cpp.o -c /Users/keigo/develop/rplidar_scanner/src/config.cpp",
   "file": "/Users/keigo/develop/rplidar_scanner/src/config.cpp",
   "output": "/Users/keigo/develop/rplidar_scanner/build/src/CMakeFiles/rplidar_scanner.dir/config.cpp.o"
 },
 {
   "directory": "/Users/keigo/develop/rplidar_scanner/build",
-  "command": "/usr/bin/c++ -I/Users/keigo/develop/rplidar_scanner/ThirdParty/tomlplusplus/include -I/Users/keigo/develop/rplidar_scanner/include -isystem /Users/keigo/develop/rplidar_scanner/build/external/rplidar_sdk/include -g -Wall -Wextra -Wpedantic -fsanitize=address -fno-omit-frame-pointer -std=gnu++2b -arch arm64 -o src/CMakeFiles/rplidar_scanner.dir/lidar.cpp.o -c /Users/keigo/develop/rplidar_scanner/src/lidar.cpp",
+  "command": "/usr/bin/c++ -I/Users/keigo/develop/rplidar_scanner/ThirdParty/tomlplusplus/include -I/Users/keigo/develop/rplidar_scanner/include -I/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-build -I/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/cmake/.. -isystem /Users/keigo/develop/rplidar_scanner/build/external/rplidar_sdk/include -g -fsanitize=address -fno-omit-frame-pointer -std=gnu++2b -arch arm64 -o src/CMakeFiles/rplidar_scanner.dir/lidar.cpp.o -c /Users/keigo/develop/rplidar_scanner/src/lidar.cpp",
   "file": "/Users/keigo/develop/rplidar_scanner/src/lidar.cpp",
   "output": "/Users/keigo/develop/rplidar_scanner/build/src/CMakeFiles/rplidar_scanner.dir/lidar.cpp.o"
+},
+{
+  "directory": "/Users/keigo/develop/rplidar_scanner/build",
+  "command": "/usr/bin/c++ -I/Users/keigo/develop/rplidar_scanner/ThirdParty/tomlplusplus/include -I/Users/keigo/develop/rplidar_scanner/include -I/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-build -I/Users/keigo/develop/rplidar_scanner/build/_deps/liblo-src/cmake/.. -isystem /Users/keigo/develop/rplidar_scanner/build/external/rplidar_sdk/include -g -fsanitize=address -fno-omit-frame-pointer -std=gnu++2b -arch arm64 -o src/CMakeFiles/rplidar_scanner.dir/osc.cpp.o -c /Users/keigo/develop/rplidar_scanner/src/osc.cpp",
+  "file": "/Users/keigo/develop/rplidar_scanner/src/osc.cpp",
+  "output": "/Users/keigo/develop/rplidar_scanner/build/src/CMakeFiles/rplidar_scanner.dir/osc.cpp.o"
 }
 ]

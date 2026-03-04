@@ -21,6 +21,7 @@ set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 include(ExternalProject)
+include(FetchContent)
 
 # RPLIDAR SDK
 set(SDK_PREFIX ${CMAKE_BINARY_DIR}/external/rplidar_sdk)
@@ -64,11 +65,24 @@ set_target_properties(rplidar_sdk PROPERTIES
 )
 add_dependencies(rplidar_sdk project_rplidar_sdk)
 
+# Liblo
+FetchContent_Declare(
+    liblo
+    GIT_REPOSITORY https://github.com/radarsat1/liblo.git
+    GIT_TAG master
+    SOURCE_SUBDIR cmake
+)
+
+set(BUILD_SHARED_LIBS OFF CACHE BOOL "Build shared libraries" FORCE)
+set(BUILD_EXAMPLES OFF CACHE BOOL "Build examples" FORCE)
+set(BUILD_TESTING OFF CACHE BOOL "Build tests" FORCE)
+FetchContent_MakeAvailable(liblo)
+
 # Add subdirectories
 add_subdirectory(src)
 
 # Link libraries
-target_link_libraries(${APP_NAME} PRIVATE rplidar_sdk)
+target_link_libraries(${APP_NAME} PRIVATE rplidar_sdk liblo)
 
 # Copy compile_commands.json to source directory
 # for better integration with IDEs and tools

@@ -1,17 +1,30 @@
 #include "config.hpp"
 #include "lidar.hpp"
-#include <memory>
+#include "osc.hpp"
+#include <cstddef>
 #include <sl_lidar.h>
 #include <sl_lidar_cmd.h>
 #include <sl_lidar_driver.h>
 #include <toml++/toml.hpp>
 
 int main() {
-  auto config = rplidar_scanner::Config("config.toml");
-  auto driver = std::make_unique<rplidar_scanner::Driver>();
+  rplidar_scanner::Config config("config.toml");
+  rplidar_scanner::Driver driver;
+  rplidar_scanner::OscSender sender(config.getOscIp(), config.getOscPort());
 
-  driver->connect(config.getPort(), config.getBaudrate());
-  driver->health_check();
+  if (!driver.connect(config.getPort(), config.getBaudrate())) {
+    return 1;
+  }
+  driver.health_check();
+
+  rplidar_scanner::scan_node_t nodes[8192];
+  size_t count = sizeof(nodes) / sizeof(nodes[0]);
+
+  driver.start_scan();
+
+  if (driver.fetch_scan_data(nodes, count)) {
+    sender.send_scan_data(nodes, count);
+  }
 
   return 0;
 }
