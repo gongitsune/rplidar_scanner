@@ -7,6 +7,13 @@ set(APP_NAME "rplidar_scanner")
 set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
 set(THIRD_PARTY_DIR ${CMAKE_SOURCE_DIR}/ThirdParty)
 
+# ThirdParty library versions
+set(RPLIDAR_SDK_VERSION "master")
+set(LIBLO_VERSION "master")
+set(TOMLPLUSPLUS_VERSION "master")
+set(FTXUI_VERSION "main")
+set(SPDLOG_VERSION "v1.17.0")
+
 set(
   CMAKE_CXX_FLAGS_DEBUG
   "${CMAKE_CXX_FLAGS_DEBUG} -fsanitize=address -fno-omit-frame-pointer"
@@ -69,7 +76,7 @@ add_dependencies(rplidar_sdk project_rplidar_sdk)
 FetchContent_Declare(
     liblo
     GIT_REPOSITORY https://github.com/radarsat1/liblo.git
-    GIT_TAG master
+    GIT_TAG ${LIBLO_VERSION}
     SOURCE_SUBDIR cmake
 )
 
@@ -78,11 +85,41 @@ set(BUILD_EXAMPLES OFF CACHE BOOL "Build examples" FORCE)
 set(BUILD_TESTING OFF CACHE BOOL "Build tests" FORCE)
 FetchContent_MakeAvailable(liblo)
 
+# Tomlplusplus
+FetchContent_Declare(
+    tomlplusplus
+    GIT_REPOSITORY https://github.com/marzer/tomlplusplus.git
+    GIT_TAG ${TOMLPLUSPLUS_VERSION}
+)
+FetchContent_MakeAvailable(tomlplusplus)
+
+# Ftxui
+FetchContent_Declare(
+  ftxui
+  GIT_REPOSITORY https://github.com/ArthurSonzogni/FTXUI
+  GIT_TAG ${FTXUI_VERSION}
+)
+FetchContent_MakeAvailable(ftxui)
+
+# Spdlog
+FetchContent_Declare(
+    spdlog
+    GIT_REPOSITORY https://github.com/gabime/spdlog.git
+    GIT_TAG ${SPDLOG_VERSION}
+)
+FetchContent_MakeAvailable(spdlog)
+
 # Add subdirectories
 add_subdirectory(src)
 
 # Link libraries
-target_link_libraries(${APP_NAME} PRIVATE rplidar_sdk liblo)
+target_link_libraries(${APP_NAME} PRIVATE
+  rplidar_sdk
+  liblo
+  tomlplusplus::tomlplusplus
+  ftxui::screen ftxui::dom ftxui::component
+  spdlog::spdlog
+)
 
 # Copy compile_commands.json to source directory
 # for better integration with IDEs and tools

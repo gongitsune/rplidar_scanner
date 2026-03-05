@@ -11,6 +11,6 @@ public:
   void send_scan_data(rplidar_scanner::scan_node_t *nodes, size_t count);
 
 private:
-  lo::Address address;
+  lo::Address address_;
 };
 } // namespace rplidar_scanner

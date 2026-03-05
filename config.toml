@@ -1,5 +1,5 @@
 [config]
-serial_port = "/dev/tty.usbserial-0001"
 baudrate = 115200
-osc_host = "localhost"
+osc_host = 'localhost'
 osc_port = 9000
+serial_port = '/dev/tty.usbserial-0001'

@@ -19,7 +19,7 @@ public:
   bool fetch_scan_data(scan_node_t *nodes, size_t &count);
 
 private:
-  std::unique_ptr<sl::ILidarDriver> driver;
-  sl_result connect_result;
+  std::unique_ptr<sl::ILidarDriver> driver_;
+  sl_result connect_result_;
 };
 } // namespace rplidar_scanner
