@@ -1,12 +1,14 @@
 #include "spdlog/spdlog.h"
+#include <cstddef>
 #include <lidar.hpp>
 #include <memory>
+#include <optional>
 #include <sl_lidar_cmd.h>
 #include <sl_lidar_driver.h>
 #include <sl_types.h>
 
 namespace rplidar_scanner {
-Driver::Driver() {
+LidarSensor::LidarSensor() {
   auto driver = sl::createLidarDriver();
   if (SL_IS_FAIL(driver.err)) {
     throw std::runtime_error("Failed to create LIDAR driver");
@@ -14,7 +16,7 @@ Driver::Driver() {
   this->driver_ = std::unique_ptr<sl::ILidarDriver>(*driver);
 }
 
-Driver::~Driver() {
+LidarSensor::~LidarSensor() {
   if (SL_IS_OK(this->connect_result_)) {
     this->driver_->setMotorSpeed(0);
     this->driver_->stop();
@@ -22,7 +24,7 @@ Driver::~Driver() {
   }
 }
 
-bool Driver::connect(const std::string &port, int baudrate) {
+bool LidarSensor::connect(const std::string &port, int baudrate) {
   auto channel = sl::createSerialPortChannel(port, baudrate);
   if (SL_IS_FAIL(channel.err)) {
     spdlog::error("Failed to create serial channel: {}", channel.err);
@@ -48,7 +50,7 @@ bool Driver::connect(const std::string &port, int baudrate) {
   return true;
 }
 
-bool Driver::health_check() {
+bool LidarSensor::health_check() {
   sl_result op_result;
   sl_lidar_response_device_health_t health_info;
 
@@ -68,23 +70,35 @@ bool Driver::health_check() {
   }
 }
 
-void Driver::start_scan() {
+void LidarSensor::start_scan() {
   this->driver_->setMotorSpeed();
   this->driver_->startScan(0, 1);
 }
 
-bool Driver::fetch_scan_data(scan_node_t *nodes, size_t &count) {
-  auto op_result = this->driver_->grabScanDataHq(nodes, count);
+std::optional<ScanData *> LidarSensor::fetch_scan_data() {
+  std::lock_guard<std::mutex> lock(this->scan_mutex_);
+
+  size_t count = LIDAR_MAX_NODES;
+  auto op_result = this->driver_->grabScanDataHq(scan_data_.nodes, count);
   if (SL_IS_FAIL(op_result)) {
     spdlog::error("Failed to grab scan data: {}", op_result);
-    return false;
+    return std::nullopt;
   }
-  op_result = this->driver_->ascendScanData(nodes, count);
+  op_result = this->driver_->ascendScanData(scan_data_.nodes, count);
   if (SL_IS_FAIL(op_result)) {
     spdlog::error("Failed to ascend scan data: {}", op_result);
-    return false;
+    return std::nullopt;
   }
 
-  return true;
+  scan_data_.count = count;
+  return &scan_data_;
+}
+
+std::optional<ScanData *> LidarSensor::get_scan_data() {
+  std::lock_guard<std::mutex> lock(this->scan_mutex_);
+  if (scan_data_.count == 0) {
+    return std::nullopt;
+  }
+  return &scan_data_;
 }
 } // namespace rplidar_scanner

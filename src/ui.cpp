@@ -1,4 +1,6 @@
 #include "ftxui/dom/elements.hpp"
+#include <cmath>
+#include <format>
 #include <ftxui/component/component.hpp>
 #include <ftxui/component/event.hpp>
 #include <ftxui/component/screen_interactive.hpp>
@@ -10,7 +12,8 @@
 
 namespace rplidar_scanner {
 
-UI::UI(rplidar_scanner::Config &config, rplidar_scanner::Log &log) {
+UI::UI(rplidar_scanner::Config &config, rplidar_scanner::Log &log,
+       rplidar_scanner::LidarSensor &sensor) {
   using namespace ftxui;
 
   auto screen = App::Fullscreen();
@@ -21,7 +24,6 @@ UI::UI(rplidar_scanner::Config &config, rplidar_scanner::Log &log) {
   auto tab_toggle = Toggle(&tab_labels, &tab_selected);
 
   // Dashboard content
-  auto lidar_canvas = Canvas(100, 100);
   auto log_output = Renderer([&] {
     auto logs = log.get_recent_logs(10);
     auto elems = std::vector<Element>{};
@@ -32,9 +34,49 @@ UI::UI(rplidar_scanner::Config &config, rplidar_scanner::Log &log) {
 
     return vbox(std::move(elems));
   });
+
+  float max_distance = 0.f;
+  float line_angle = 0.f;
   auto dashboard = Renderer([&] {
+    auto lidar_canvas = Canvas(100, 100);
+    auto low_quality_cnt = 0;
+
+    auto data = sensor.get_scan_data();
+    if (data) {
+      auto scan_data = data.value();
+
+      for (std::size_t i = 0; i < scan_data->count; ++i) {
+        auto &node = scan_data->nodes[i];
+        float distance = node.dist_mm_q2 / 4.0f;
+        if (distance > max_distance) {
+          max_distance = distance;
+        }
+      }
+
+      lidar_canvas.DrawPointLine(
+          50.0f, 50.0f, 50.0f + 50.0f * std::cos(line_angle),
+          50.0f + 50.0f * std::sin(line_angle), Color::Red);
+      line_angle = std::fmod(line_angle + 0.1f, M_PI * 2.f);
+
+      for (std::size_t i = 0; i < scan_data->count; ++i) {
+        auto &node = scan_data->nodes[i];
+        float angle = node.angle_z_q14 * 90.0f / 16384.0f;
+        float distance = node.dist_mm_q2 / 4.0f;
+        int quality = node.quality >> SL_LIDAR_RESP_MEASUREMENT_QUALITY_SHIFT;
+        if (quality == 0) {
+          low_quality_cnt++;
+          continue;
+        }
+
+        distance = distance / max_distance * 50.0f; // scale to fit canvas
+        float x = distance * std::cos(angle * M_PI / 180.0f) + 50.0f;
+        float y = distance * std::sin(angle * M_PI / 180.0f) + 50.0f;
+        lidar_canvas.DrawPoint(x, y, Color::Green);
+      }
+    }
     return vbox({
-        text("LIDAR Canvas: "),
+        text(std::format("Max Distance: {:.2f} mm, Low Quality: {}",
+                         max_distance, low_quality_cnt)),
         canvas(lidar_canvas) | border | center,
         separator(),
         log_output->Render(),
@@ -101,6 +143,20 @@ UI::UI(rplidar_scanner::Config &config, rplidar_scanner::Log &log) {
     return false;
   });
 
+  std::atomic<bool> refresh_ui_continue = true;
+  std::thread refresh_ui([&] {
+    while (refresh_ui_continue) {
+      using namespace std::chrono_literals;
+      std::this_thread::sleep_for(0.05s);
+
+      screen.PostEvent(Event::Custom);
+    }
+  });
   screen.Loop(event_handler);
+
+  refresh_ui_continue = false;
+  if (refresh_ui.joinable()) {
+    refresh_ui.join();
+  }
 }
 } // namespace rplidar_scanner
