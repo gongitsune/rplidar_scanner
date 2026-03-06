@@ -1,5 +1,6 @@
 [config]
 baudrate = 115200
+live_update = true
 osc_host = 'localhost'
 osc_port = 9000
 serial_port = '/dev/tty.usbserial-0001'

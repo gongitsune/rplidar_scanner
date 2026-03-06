@@ -35,9 +35,16 @@ UI::UI(rplidar_scanner::Config &config, rplidar_scanner::Log &log,
     return vbox(std::move(elems));
   });
 
+  auto live_update_toggle = Checkbox("Live Update", &config.live_update);
+
+  auto dashboard_container = Container::Vertical({
+      live_update_toggle,
+      log_output,
+  });
+
   float max_distance = 0.f;
   float line_angle = 0.f;
-  auto dashboard = Renderer([&] {
+  auto dashboard = Renderer(dashboard_container, [&] {
     auto lidar_canvas = Canvas(100, 100);
     auto low_quality_cnt = 0;
 
@@ -74,9 +81,14 @@ UI::UI(rplidar_scanner::Config &config, rplidar_scanner::Log &log,
         lidar_canvas.DrawPoint(x, y, Color::Green);
       }
     }
+
     return vbox({
-        text(std::format("Max Distance: {:.2f} mm, Low Quality: {}",
-                         max_distance, low_quality_cnt)),
+        hbox({
+            text(std::format("Max Distance: {:.2f} mm, Low Quality: {}",
+                             max_distance, low_quality_cnt)),
+            filler(),
+            live_update_toggle->Render() | hcenter,
+        }),
         canvas(lidar_canvas) | border | center,
         separator(),
         log_output->Render(),
@@ -148,8 +160,9 @@ UI::UI(rplidar_scanner::Config &config, rplidar_scanner::Log &log,
     while (refresh_ui_continue) {
       using namespace std::chrono_literals;
       std::this_thread::sleep_for(0.05s);
-
-      screen.PostEvent(Event::Custom);
+      if (config.live_update) {
+        screen.PostEvent(Event::Custom);
+      }
     }
   });
   screen.Loop(event_handler);

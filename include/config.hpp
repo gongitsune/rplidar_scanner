@@ -16,6 +16,7 @@ public:
   int baudrate{115200};
   std::string osc_host = "localhost";
   int osc_port{9000};
+  bool live_update = false;
 
 private:
   std::string file_path_ = "config.toml";
